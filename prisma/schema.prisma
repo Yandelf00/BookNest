@@ -31,3 +31,14 @@ model Session {
 
   user User @relation(fields: [userId], references: [id])
 }
+
+model Book{
+  id             Int @id @default(autoincrement())
+  name           String
+  authorName     String
+  genre          String
+  language       String
+  Description    String
+  numberOfPages  Int
+  pageAt         Int
+}

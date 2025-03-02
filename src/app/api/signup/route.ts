@@ -1,11 +1,12 @@
+import prisma from "@/lib/db";
 import { PrismaClient } from "@prisma/client";
 import { Lucia } from "lucia";
 import { PrismaAdapter } from "@lucia-auth/adapter-prisma";
 import { cookies } from "next/headers";
 import bcrypt from "bcryptjs";
 
-const client = new PrismaClient();
-const adapter = new PrismaAdapter(client.session, client.user);
+// const client = new PrismaClient();
+const adapter = new PrismaAdapter(prisma.session, prisma.user);
 
 export const lucia = new Lucia(adapter, {
   sessionCookie: {
@@ -28,7 +29,7 @@ export async function POST(request: Request) {
   const hashedPassword = await bcrypt.hash(password, 10);
 
   // Create the user in the database
-  const user = await client.user.create({
+  const user = await prisma.user.create({
     data: {
       username,
       email,

@@ -1,5 +1,6 @@
 import { validateRequest } from "@/lib/auth";
 import { redirect } from "next/navigation";
+import InsertBook from "@/components/actionComponents/insertBook";
 
 export default async function HomePage() {
   const { user } = await validateRequest();
@@ -16,6 +17,7 @@ export default async function HomePage() {
       <form action="/api/logout" method="POST">
         <button type="submit">Logout</button>
       </form>
+      <InsertBook/>
     </div>
   );
 }

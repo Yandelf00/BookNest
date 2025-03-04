@@ -33,8 +33,7 @@ export async function insertBooks(prevState : any, formData : FormData){
         }
     }
 
-    console.log(result)
-
+    
     return {message : "book inserted successfully"};
 
 }

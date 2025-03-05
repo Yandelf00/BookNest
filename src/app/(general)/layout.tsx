@@ -4,7 +4,7 @@ import MobileNavbar from "@/components/mobileComponents/mobileNavbar";
 import MobileSideBar from "@/components/mobileComponents/mobileSideBar";
 import TabletSidebar from "@/components/tabletComponents/tabletSidebar";
 import Navbar from "@/components/general/navbar";
-import "./globals.css";
+import "../globals.css";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",

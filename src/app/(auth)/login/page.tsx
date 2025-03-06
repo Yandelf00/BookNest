@@ -27,11 +27,9 @@ export default function LoginPage() {
   return (
     <div className="w-full h-full bg-[#E5F6EE] flex justify-center items-center">
       <section className="w-full h-full bg-white flex justify-center items-center
-      sm:w-[90%] sm:h-[90%] sm:border-1 sm:border-black sm:rounded-lg
-      md:w-[70%] md:h-[80%] 
-      lg:w-[700px]">
+      sm:w-[400px] sm:h-[600px] sm:border-1 sm:border-black sm:rounded-lg ">
         <form onSubmit={handleSubmit} className="space-y-5 w-[90%]
-        sm:w-[70%]">
+        sm:w-[85%]">
           <div className="flex flex-col">
             <label htmlFor="email">Email</label>
             <input type="email" name="email" className="border-1 border-black rounded-md" id="email" required />

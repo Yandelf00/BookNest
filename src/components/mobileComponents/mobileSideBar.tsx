@@ -13,7 +13,7 @@ export default function MobileSideBar() {
         <FaBook color='white'/>
         <FaPlus color='white'/>
         <form action="/api/logout" method='POST'>
-            <button type='submit' className='h-[33px] w-[33px] bg-[#FF7474] flex justify-center items-center rounded-md pl-1 '>
+            <button type='submit' className='h-[33px] w-[33px] bg-[#FF7474] cursor-pointer flex justify-center items-center rounded-md pl-1 '>
                 <IoLogOutOutline color='white'/>
             </button>
         </form>

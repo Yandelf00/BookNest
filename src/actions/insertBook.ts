@@ -1,5 +1,6 @@
 "use server"
 import { z } from "zod";
+import prisma from "@/lib/db";
 
 
 const Book = z.object({
@@ -22,7 +23,6 @@ export async function insertBooks(prevState : any, formData : FormData){
         numberOfPages : Number(formData.get("numberOfPages")),
         pageAt: Number(formData.get("pageAt")),
     }
-    console.log(rawFormData)
 
     const result = Book.safeParse(rawFormData);
 
@@ -32,8 +32,23 @@ export async function insertBooks(prevState : any, formData : FormData){
             message : "validation failed"
         }
     }
-
-    
-    return {message : "book inserted successfully"};
-
+    try {
+        const res = await prisma.book.create({
+            data : {
+                name : result.data.name,
+                authorName : result.data.authorName,
+                genre : result.data.genre,
+                language : result.data.language,
+                Description : result.data.Description,
+                numberOfPages : result.data.numberOfPages,
+                pageAt : result.data.pageAt,
+            }
+        })
+        return {res, message : "book inserted successfully"};
+    } catch (error) {
+       console.log(error) 
+       return {
+        message : "couldn't insert book successfully"
+       }
+    }
 }

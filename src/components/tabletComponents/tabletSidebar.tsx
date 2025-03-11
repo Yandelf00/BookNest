@@ -16,7 +16,7 @@ export default function TabletSidebar() {
 
     return (
         <section className='hidden sm:flex items-center justify-center w-[5rem] h-full
-        lg:w-[20rem]'>
+        lg:w-[25rem]'>
             <div className='w-[70%] h-[90%] bg-[#081C14] rounded-md flex flex-col justify-between'>
                 <div className='flex flex-col justify-center items-center pt-5 gap-8 '>
                     <div className='lg:w-full lg:flex lg:flex-row lg:justify-center lg:items-center lg:gap-3'>

@@ -1,10 +1,9 @@
-"use server"
+"use server";
 import { z } from "zod";
 import prisma from "@/lib/db";
 
-
 const Book = z.object({
-    name: z.string().min(1, "Name is required"), 
+    name: z.string().min(1, "Name is required"),
     authorName: z.string().min(1, "Author name is required"),
     genre: z.string().min(1, "Genre is required"),
     language: z.string().min(1, "Language is required"),
@@ -13,42 +12,51 @@ const Book = z.object({
     pageAt: z.number().int().positive("Page at must be a non-negative integer"),
 });
 
-export async function insertBooks(prevState : any, formData : FormData){
+type BookType = z.infer<typeof Book>;
+
+interface InsertBookResult {
+    res?: BookType;
+    message: string;
+    errors?: Record<string, string[]>;
+}
+
+export async function insertBooks(state: InsertBookResult | null, formData: FormData): Promise<InsertBookResult> {
     const rawFormData = {
-        name : formData.get("name"),
-        authorName : formData.get("authorName"),
-        genre : formData.get("genre"),
-        language : formData.get("language"),
-        Description : formData.get("Description"),
-        numberOfPages : Number(formData.get("numberOfPages")),
+        name: formData.get("name"),
+        authorName: formData.get("authorName"),
+        genre: formData.get("genre"),
+        language: formData.get("language"),
+        Description: formData.get("Description"),
+        numberOfPages: Number(formData.get("numberOfPages")),
         pageAt: Number(formData.get("pageAt")),
-    }
+    };
 
     const result = Book.safeParse(rawFormData);
 
-    if(!result.success){
+    if (!result.success) {
         return {
-            errors : result.error.flatten().fieldErrors,
-            message : "validation failed"
-        }
+            errors: result.error.flatten().fieldErrors,
+            message: "Validation failed",
+        };
     }
+
     try {
         const res = await prisma.book.create({
-            data : {
-                name : result.data.name,
-                authorName : result.data.authorName,
-                genre : result.data.genre,
-                language : result.data.language,
-                Description : result.data.Description,
-                numberOfPages : result.data.numberOfPages,
-                pageAt : result.data.pageAt,
-            }
-        })
-        return {res, message : "book inserted successfully"};
+            data: {
+                name: result.data.name,
+                authorName: result.data.authorName,
+                genre: result.data.genre,
+                language: result.data.language,
+                Description: result.data.Description,
+                numberOfPages: result.data.numberOfPages,
+                pageAt: result.data.pageAt,
+            },
+        });
+        return { res, message: "Book inserted successfully" };
     } catch (error) {
-       console.log(error) 
-       return {
-        message : "couldn't insert book successfully"
-       }
+        console.log(error);
+        return {
+            message: "Couldn't insert book successfully",
+        };
     }
 }

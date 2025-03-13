@@ -1,25 +1,10 @@
 import prisma from "@/lib/db";
-import { Lucia } from "lucia";
-import { PrismaAdapter } from "@lucia-auth/adapter-prisma";
+import { lucia } from "@/lib/auth";
 import { cookies } from "next/headers";
 import bcrypt from "bcryptjs";
 
 // const client = new PrismaClient();
-const adapter = new PrismaAdapter(prisma.session, prisma.user);
 
-export const lucia = new Lucia(adapter, {
-  sessionCookie: {
-    expires: false,
-    attributes: {
-      secure: process.env.NODE_ENV === "production",
-    },
-  },
-  getUserAttributes: (attributes) => {
-    return {
-      username: attributes.username,
-    };
-  },
-});
 
 export async function POST(request: Request) {
   const { email, password } = await request.json();

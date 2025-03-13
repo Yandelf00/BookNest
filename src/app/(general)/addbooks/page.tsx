@@ -1,10 +1,11 @@
 import React from 'react'
 import InsertBook from '@/components/actionComponents/insertBook'
 
+
 export default function page() {
   return (
     <div className='w-full h-full flex justify-center items-center'>
-        <div className='h-full w-full sm:h-[90%] flex justify-center items-start sm:items-center '>
+        <div className='h-full w-[100%] sm:h-[90%] flex justify-center items-start sm:items-center '>
           <div className='w-full h-full 
           sm:w-[500px] sm:h-[700px] 
           lg:h-[800px] lg:w-[600px] 

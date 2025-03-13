@@ -1,7 +1,5 @@
 import { validateRequest } from "@/lib/auth";
 import { redirect } from "next/navigation";
-import InsertBook from "@/components/actionComponents/insertBook";
-import MobileNavbar from "@/components/mobileComponents/mobileNavbar";
 
 export default async function HomePage() {
   const { user } = await validateRequest();
@@ -12,14 +10,9 @@ export default async function HomePage() {
   }
 
   return (
-    <main className="w-[100px] h-[100px] bg-red-500 ">
-      {/* <h1>Welcome, {user.username}!</h1>
-      <p>You are logged in.</p>
-      <form action="/api/logout" method="POST">
-        <button type="submit">Logout</button>
-      </form>
-      <InsertBook/> */}
-      
-    </main>
+    <main className='w-full h-full flex justify-center items-center'>
+        <div className='h-full w-[100%] sm:h-[90%] flex justify-center items-start sm:items-center '>
+        </div>
+    </main> 
   );
 }

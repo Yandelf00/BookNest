@@ -23,11 +23,6 @@ export default function TabletSidebar() {
                         <Image src={'/assets/logo-white.png'} alt='logo' height={40} width={30} />
                         <h1 className='text-white hidden lg:block'>BookNest</h1>
                     </div>
-                    {/* <div className='lg:w-full lg:h-10 mt-20 lg:flex lg:flex-row lg:justify-start lg:items-center lg:gap-3 lg:pl-8
-                    cursor-pointer hover:bg-[rgba(255,255,255,0.5)] '>
-                        <IoHome color='white' className='size-7'/>
-                        <h1 className='text-white hidden lg:block'>Home</h1>
-                    </div> */}
                     <Link href={'/'} className={`lg:w-full mt-20 lg:h-10 lg:flex lg:flex-row lg:justify-start lg:items-center lg:gap-3 lg:pl-8
                         cursor-pointer ${pathname === '/' ? 'bg-white rounded-md lg:rounded-full' : 'hover:bg-[rgba(255,255,255,0.5)] '} `}>
                         <IoHome className={`size-7 ${pathname === '/' ? 'text-[#081C14]' : 'text-white' } `} />

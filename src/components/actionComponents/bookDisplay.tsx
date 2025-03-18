@@ -19,7 +19,7 @@ export default function BookDisplay({id, name, author, pageAt, totalPages, index
       <ProgressBar progressProp={progressProp} progressPercent={progressPercent} />
       <div className='flex flex-col'>
         <div >{name}</div>
-        <div className='text-[10px] ' >{author}</div>
+        <div className='text-[10px]'>{author}</div>
       </div>
     </div>
   )

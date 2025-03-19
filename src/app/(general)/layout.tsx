@@ -1,9 +1,9 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
-import MobileNavbar from "@/components/mobileComponents/mobileNavbar";
-import MobileSideBar from "@/components/mobileComponents/mobileSideBar";
-import TabletSidebar from "@/components/tabletComponents/tabletSidebar";
-import Navbar from "@/components/general/navbar";
+import MobNavbar from "./_components/MobNavbar";
+import MobSideBar from "./_components/MobSideBar";
+import Navbar from "./_components/NavBar";
+import TabSidebar from "./_components/TabSideBar";
 import "../globals.css";
 
 const geistSans = Geist({
@@ -34,9 +34,9 @@ export default function RootLayout({
         flex flex-col sm:flex-row`}
       >
         <Navbar/>
-        <TabletSidebar />
-        <MobileNavbar/>
-        <MobileSideBar/>
+        <TabSidebar />
+        <MobNavbar/>
+        <MobSideBar/>
         {children}
       </body>
     </html>

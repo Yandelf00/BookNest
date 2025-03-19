@@ -1,5 +1,6 @@
 import { books } from "./books";
-import prisma from "@/lib/db";
+import { PrismaClient } from '@prisma/client'
+const prisma = new PrismaClient()
 
 
 async function main(){

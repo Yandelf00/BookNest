@@ -9,7 +9,7 @@ type bookDisplayProps = {
   totalPages: number
 }
 
-export default function BookDisplay({id, name, author, pageAt, totalPages, index} : bookDisplayProps){
+export default function DisplayBooks({id, name, author, pageAt, totalPages, index} : bookDisplayProps){
   const progressPercent = Math.round((pageAt / totalPages)*100)  
   const progressProp = progressPercent / 100 
   
@@ -54,3 +54,4 @@ function ProgressBar({ progressProp, progressPercent } : progressProps){
       </div>
   )
 }
+

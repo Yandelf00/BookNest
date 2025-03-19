@@ -4,7 +4,7 @@ import { useActionState } from 'react'
 import { insertBooks } from '@/actions/insertBook'
 
 
-export default function InsertBook() {
+export default function BookInsert() {
     const [state, formAction] = useActionState(insertBooks, null)
     return (
         <div>

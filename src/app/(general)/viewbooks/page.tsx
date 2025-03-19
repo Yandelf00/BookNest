@@ -1,12 +1,11 @@
 "use client"
 import {
   QueryClientProvider,
-  useQuery,
+
 } from '@tanstack/react-query'
 import  queryClient  from '@/lib/queryClient'
 import React, { useState } from 'react'
-import BookGetter from '@/components/actionComponents/bookGetter'
-import Image from 'next/image'
+import GetBooks from './_components/GetBooks'
 
 
 export default function page() {
@@ -57,7 +56,7 @@ export default function page() {
                 </div>
               </div>
               <div className='w-full h-full '>
-                <BookGetter category={category} />
+                <GetBooks category={category} />
               </div>
           </div>
       </div>

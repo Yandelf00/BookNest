@@ -1,5 +1,5 @@
 import React from 'react'
-import InsertBook from '@/components/actionComponents/insertBook'
+import BookInsert from './_components/BookInsert'
 
 
 export default function page() {
@@ -12,7 +12,7 @@ export default function page() {
           bg-white sm:rounded-xl sm:shadow-md sm:px-8
           flex flex-col p-4'>
             <h1 className='text-[#081C14] text-[25px] font-semibold'>Add a new book</h1>
-            <InsertBook/>
+            <BookInsert/>
           </div>
         </div>
     </div>

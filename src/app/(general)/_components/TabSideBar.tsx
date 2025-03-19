@@ -11,7 +11,7 @@ import { usePathname } from 'next/navigation';
 
 
 
-export default function TabletSidebar() {
+export default function TabSidebar() {
     const pathname = usePathname()
 
     return (

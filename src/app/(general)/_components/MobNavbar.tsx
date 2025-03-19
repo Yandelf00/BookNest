@@ -1,7 +1,7 @@
 import React from 'react'
 import Image from 'next/image'
 
-export default function MobileNavbar() {
+export default function MobNavbar() {
   return (
     <section className='w-full flex p-2 flex-row justify-between sm:hidden'>
         <div className='flex flex-row gap-1 items-center '>

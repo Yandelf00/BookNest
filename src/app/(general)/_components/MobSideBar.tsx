@@ -9,7 +9,7 @@ import { usePathname } from 'next/navigation';
 import Link from 'next/link';
 
 
-export default function MobileSideBar() {
+export default function MobSideBar() {
   const pathname = usePathname()
 
   return (

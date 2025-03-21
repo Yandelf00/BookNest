@@ -41,7 +41,7 @@ This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-
         
 - **Database**:
     
-    - SQLite (or any other database supported by Prisma).
+    - SQLite 
         
 
 ---
@@ -81,11 +81,11 @@ To run this project locally, follow these steps:
 
 ### Prerequisites
 
-- Node.js (v18 or higher)
+- Node.js 
     
 - npm or yarn
     
-- SQLite (or another database supported by Prisma)
+- SQLite 
     
 
 ### Installation
@@ -93,7 +93,7 @@ To run this project locally, follow these steps:
 1. Clone the repository:
 
 ```bash
-git clone https://github.com/your-username/booknest.git
+git clone https://github.com/Yandelf00/BookNest
 cd booknest
 ```
  

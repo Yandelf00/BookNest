@@ -21,6 +21,7 @@ model User {
   hashedPassword String?
   picture        String?
 
+  book    Book[]
   session Session[]
 }
 
@@ -34,6 +35,7 @@ model Session {
 
 model Book{
   id             Int @id @default(autoincrement())
+  userId         String
   name           String
   authorName     String
   genre          String
@@ -41,4 +43,9 @@ model Book{
   Description    String
   numberOfPages  Int
   pageAt         Int
+  isRead         Boolean @default(false) 
+  createdAt      DateTime @default(now())
+  readAt         DateTime?
+
+  user User @relation(fields: [userId], references: [id])
 }

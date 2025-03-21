@@ -1,6 +1,7 @@
 "use server";
 import { z } from "zod";
 import prisma from "@/lib/db";
+import { validateRequest } from "@/lib/auth";
 
 const Book = z.object({
     name: z.string().min(1, "Name is required"),
@@ -21,6 +22,14 @@ interface InsertBookResult {
 }
 
 export async function insertBooks(state: InsertBookResult | null, formData: FormData): Promise<InsertBookResult> {
+    const { user } = await validateRequest();
+    if (!user) {
+        return {
+            message: "Unauthorized: User not logged in",
+        };
+    }
+
+
     const rawFormData = {
         name: formData.get("name"),
         authorName: formData.get("authorName"),
@@ -50,6 +59,7 @@ export async function insertBooks(state: InsertBookResult | null, formData: Form
                 Description: result.data.Description,
                 numberOfPages: result.data.numberOfPages,
                 pageAt: result.data.pageAt,
+                userId : user.id,
             },
         });
         return { res, message: "Book inserted successfully" };

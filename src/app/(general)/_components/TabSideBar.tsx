@@ -21,7 +21,7 @@ export default function TabSidebar() {
                 <div className='flex flex-col justify-center items-center pt-5 gap-8 '>
                     <div className='lg:w-full lg:flex lg:flex-row lg:justify-center lg:items-center lg:gap-3'>
                         <Image src={'/assets/logo-white.png'} alt='logo' height={40} width={30} />
-                        <h1 className='text-white hidden lg:block'>BookNest</h1>
+                        <h1 className='text-white hidden lg:block pointer-events-none'>BookNest</h1>
                     </div>
                     <Link href={'/'} className={`lg:w-full mt-20 lg:h-10 lg:flex lg:flex-row lg:justify-start lg:items-center lg:gap-3 lg:pl-8
                         cursor-pointer ${pathname === '/' ? 'bg-white rounded-md lg:rounded-full' : 'hover:bg-[rgba(255,255,255,0.5)] '} `}>

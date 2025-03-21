@@ -5,6 +5,9 @@ import {
 import React, { useState } from 'react'
 import DisplayBooks from './DisplayBooks'
 import { Book } from '@prisma/client'
+import { FaLongArrowAltRight } from "react-icons/fa";
+import { FaLongArrowAltLeft } from "react-icons/fa";
+
 
 export default function GetBooks(category : {category : string}) {
   const [start, setStart] = useState(0)
@@ -26,8 +29,16 @@ export default function GetBooks(category : {category : string}) {
     queryFn: () => fetchData(category.category),
   })
 
+
   function addStart(){
-    setStart(start+14)
+    if(start+12 <= data.length){
+      setStart(start+12)
+    }
+  }
+  function subStart(){
+    if(start-12 >= 0){
+      setStart(start-12)
+    }
   }
 
   if (isPending) return 'Loading...'
@@ -35,8 +46,8 @@ export default function GetBooks(category : {category : string}) {
   if (error) return 'An error has occurred: ' + error.message
 
   return (
-    <div>
-      {data.filter((item:Book, idx:number)=> idx>start && idx<start+14).map((item : Book, index:number) => (
+    <div className='w-full h-full relative'>
+      {data.filter((item:Book, idx:number)=> idx>=start && idx<start+12).map((item : Book, index:number) => (
         <DisplayBooks
         key={item.id}
         name={item.name} 
@@ -46,7 +57,10 @@ export default function GetBooks(category : {category : string}) {
         totalPages={item.numberOfPages} 
         author={item.authorName} />
       ))}
-      <div onClick={addStart}>add</div>
+      <div className='absolute bottom-3 left-1/2 cursor-pointer gap-3 flex flex-row'>
+        <FaLongArrowAltLeft onClick={subStart} className='size-6'/>
+        <FaLongArrowAltRight onClick={addStart} className='size-6'/>
+      </div>
     </div>
   )
 }

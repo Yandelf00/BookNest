@@ -10,6 +10,7 @@ type bookDisplayProps = {
 }
 
 export default function DisplayBooks({id, name, author, pageAt, totalPages, index} : bookDisplayProps){
+  console.log("inside the displayBooks ", name)
   const progressPercent = Math.round((pageAt / totalPages)*100)  
   const progressProp = progressPercent / 100 
   
